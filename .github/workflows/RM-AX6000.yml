@@ -30,7 +30,7 @@ jobs:
 #            make menuconfig
 
     - name: get lgs2007m config
-      run: wget https://raw.githubusercontent.com/lgs2007m/Actions-OpenWrt/main/hanwckf/Redmi-AX6000/.config .config
+      run: wget https://raw.githubusercontent.com/lgs2007m/Actions-OpenWrt/main/hanwckf/Redmi-AX6000/.config
 
     - name: final make
       run: make V=s
