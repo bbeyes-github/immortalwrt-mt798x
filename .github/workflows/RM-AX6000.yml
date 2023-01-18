@@ -27,7 +27,7 @@ jobs:
       run: cp -f defconfig/mt7986-ax6000.config .config
 
     - name: generate .config file (menuconfig)
-      run: make
+      run: make menuconfig
 
     - name: final make
       run: make V=s
