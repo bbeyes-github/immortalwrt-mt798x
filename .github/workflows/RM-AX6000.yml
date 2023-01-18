@@ -13,15 +13,27 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
+    - name: install tools
+      run: sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.eu.org/init_build_environment.sh)'
 
-    - name: configure
-      run: ./configure
+    - name: update feeds
+      run: ./scripts/feeds update -a
+      
+    - name: install feeds
+      run: ./scripts/feeds update -a
+      
+    - name: copy .config file
+      run: cp -f defconfig/mt7986-ax6000.config .config
 
-    - name: Install dependencies
+    - name: generate .config file (menuconfig)
       run: make
 
-    - name: Run check
-      run: make check
-
-    - name: Run distcheck
-      run: make distcheck
+    - name: final make
+      run: make V=s
+      
+    - name : Upload artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: immortalwrt-mt798x
+        path: immortalwrt-mt798x/bin
