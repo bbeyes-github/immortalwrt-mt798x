@@ -24,10 +24,10 @@ jobs:
     - name: install feeds
       run: ./scripts/feeds update -a
       
-    - name: copy .config file
-      run:  |
-            cp -f defconfig/mt7986-ax6000.config .config
-            make config
+#    - name: copy .config file
+#      run:  |
+#            cp -f defconfig/mt7986-ax6000.config .config
+#            make config
 
 #    - name: get lgs2007m config
 #      run: wget https://raw.githubusercontent.com/lgs2007m/Actions-OpenWrt/main/hanwckf/Redmi-AX6000/.config
